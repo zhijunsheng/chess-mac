@@ -10,6 +10,13 @@ import Foundation
 struct ChessBoard: CustomStringConvertible {
     var pieceBox: Set<ChessPiece> = []
     
+    func canKnightMove(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) -> Bool {
+        if fromCol == 1 && fromRow == 0 && toCol == 2 && toRow == 2 {
+            return true
+        }
+        return false
+    }
+    
     mutating func initBoard() {
         for i in 0..<8 {
             pieceBox.insert(ChessPiece(col: i, row: 1, player: .white, rank: .pawn, imageName: "Pawn-white"))

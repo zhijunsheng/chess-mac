@@ -18,6 +18,7 @@
 		0750FB162551C1F80023377D /* ChessPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750FB152551C1F80023377D /* ChessPlayer.swift */; };
 		0750FB1A2551C2AC0023377D /* ChessRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750FB192551C2AC0023377D /* ChessRank.swift */; };
 		0750FB22255212410023377D /* MacChessDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750FB21255212410023377D /* MacChessDelegate.swift */; };
+		076B61E02555DEB400B293BC /* KnightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076B61DF2555DEB400B293BC /* KnightTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		0750FB152551C1F80023377D /* ChessPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessPlayer.swift; sourceTree = "<group>"; };
 		0750FB192551C2AC0023377D /* ChessRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessRank.swift; sourceTree = "<group>"; };
 		0750FB21255212410023377D /* MacChessDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacChessDelegate.swift; sourceTree = "<group>"; };
+		076B61DF2555DEB400B293BC /* KnightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnightTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		0750FB0A2551BA090023377D /* MacChessTests */ = {
 			isa = PBXGroup;
 			children = (
+				076B61DF2555DEB400B293BC /* KnightTests.swift */,
 				0750FB0B2551BA090023377D /* MacChessTests.swift */,
 				0750FB0D2551BA090023377D /* Info.plist */,
 			);
@@ -227,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				076B61E02555DEB400B293BC /* KnightTests.swift in Sources */,
 				0750FB0C2551BA090023377D /* MacChessTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
