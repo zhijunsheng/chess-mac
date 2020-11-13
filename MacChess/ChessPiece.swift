@@ -17,4 +17,11 @@ struct ChessPiece: Hashable {
     static func ==(lhs: ChessPiece, rhs: ChessPiece) -> Bool {
         return lhs.col == rhs.col && lhs.row == rhs.row && lhs.player == rhs.player && lhs.rank == rhs.rank
     }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(col)
+        hasher.combine(row)
+        hasher.combine(player)
+        hasher.combine(rank)
+    }
 }
