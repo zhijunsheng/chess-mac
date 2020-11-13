@@ -9,7 +9,7 @@ import Cocoa
 
 class BoardView: NSView {
     var cellSide: CGFloat = -1
-    var shadowPieceBox: Set<ChessPiece> = []
+    var shadowPiecesBox: Set<ChessPiece> = []
     var fromCol: Int = -1
     var fromRow: Int = -1
     var chessDelegate: MacChessDelegate? = nil
@@ -53,7 +53,7 @@ class BoardView: NSView {
     }
     
     func drawPieces() {
-        for piece in shadowPieceBox where piece != movingPiece {
+        for piece in shadowPiecesBox where piece != movingPiece {
             drawPiece(piece: piece)
         }
         
