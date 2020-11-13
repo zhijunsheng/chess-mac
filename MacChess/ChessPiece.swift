@@ -13,4 +13,8 @@ struct ChessPiece: Hashable {
     let player: ChessPlayer
     let rank: ChessRank
     let imageName: String
+    
+    static func ==(lhs: ChessPiece, rhs: ChessPiece) -> Bool {
+        return lhs.col == rhs.col && lhs.row == rhs.row && lhs.player == rhs.player && lhs.rank == rhs.rank
+    }
 }
