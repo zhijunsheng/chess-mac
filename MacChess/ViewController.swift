@@ -24,7 +24,7 @@ class ViewController: NSViewController, MacChessDelegate {
         boardView.chessDelegate = self
 
         chessBoard.initBoard()
-        boardView.shadowPieceBox = chessBoard.pieceBox
+        boardView.shadowPieceBox = chessBoard.piecesBox
         boardView.setNeedsDisplay(boardView.bounds)
     }
 
@@ -36,7 +36,7 @@ class ViewController: NSViewController, MacChessDelegate {
     
     func movePiece(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
         chessBoard.movePiece(fromCol: fromCol, fromRow: fromRow, toCol: toCol, toRow: toRow)
-        boardView.shadowPieceBox = chessBoard.pieceBox
+        boardView.shadowPieceBox = chessBoard.piecesBox
         boardView.setNeedsDisplay(boardView.bounds)
     }
     
