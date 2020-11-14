@@ -16,9 +16,16 @@ class BoardView: NSView {
     var movingPiece: ChessPiece?
     var movingPieceX: CGFloat = -1
     var movingPieceY: CGFloat = -1
+    var keyImageNameValueImage: Dictionary<String, NSImage> = [:]
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
+        
+        if keyImageNameValueImage.isEmpty {
+            for piece in shadowPiecesBox {
+                keyImageNameValueImage[piece.imageName] = NSImage(named: piece.imageName)
+            }
+        }
         
         cellSide = bounds.width / 8
 
@@ -64,7 +71,7 @@ class BoardView: NSView {
     }
     
     func drawPiece(piece: ChessPiece) {
-        NSImage(named: piece.imageName)?.draw(in: NSRect(x: CGFloat(piece.col) * cellSide, y: CGFloat(piece.row) * cellSide, width: cellSide, height: cellSide))
+        keyImageNameValueImage[piece.imageName]?.draw(in: NSRect(x: CGFloat(piece.col) * cellSide, y: CGFloat(piece.row) * cellSide, width: cellSide, height: cellSide))
     }
     
     func drawBoard() {
