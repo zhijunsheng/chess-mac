@@ -41,7 +41,7 @@ struct ChessBoard: CustomStringConvertible {
     }
     
     mutating func movePiece(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
-        guard let movingPiece = pieceAt(col: fromCol, row: fromRow) else { return }
+        guard var movingPiece = pieceAt(col: fromCol, row: fromRow) else { return }
         
         if let targetPiece = pieceAt(col: toCol, row: toRow) {
             if targetPiece.player == movingPiece.player {
@@ -52,7 +52,9 @@ struct ChessBoard: CustomStringConvertible {
         }
         
         piecesBox.remove(movingPiece)
-        piecesBox.insert(ChessPiece(col: toCol, row: toRow, player: movingPiece.player, rank: movingPiece.rank, imageName: movingPiece.imageName))
+        movingPiece.col = toCol
+        movingPiece.row = toRow
+        piecesBox.insert(movingPiece)
     }
     
     func pieceAt(col: Int, row: Int) -> ChessPiece? {
