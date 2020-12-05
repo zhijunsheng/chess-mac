@@ -9,6 +9,8 @@ import Cocoa
 
 class ViewController: NSViewController, MacChessDelegate {
 
+    let communicator = Communicator()
+    
     var chessBoard = ChessBoard()
     @IBOutlet weak var boardView: BoardView!
     
@@ -26,6 +28,8 @@ class ViewController: NSViewController, MacChessDelegate {
         chessBoard.initBoard()
         boardView.shadowPiecesBox = chessBoard.piecesBox
         boardView.setNeedsDisplay(boardView.bounds)
+        
+        communicator.setupSocketComm()
     }
 
     override var representedObject: Any? {

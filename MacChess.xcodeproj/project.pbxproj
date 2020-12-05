@@ -19,6 +19,7 @@
 		0750FB1A2551C2AC0023377D /* ChessRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750FB192551C2AC0023377D /* ChessRank.swift */; };
 		0750FB22255212410023377D /* MacChessDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0750FB21255212410023377D /* MacChessDelegate.swift */; };
 		076B61E02555DEB400B293BC /* KnightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076B61DF2555DEB400B293BC /* KnightTests.swift */; };
+		07E8858F257C39B8007BE0E4 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8858E257C39B8007BE0E4 /* Communicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		0750FB192551C2AC0023377D /* ChessRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessRank.swift; sourceTree = "<group>"; };
 		0750FB21255212410023377D /* MacChessDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacChessDelegate.swift; sourceTree = "<group>"; };
 		076B61DF2555DEB400B293BC /* KnightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnightTests.swift; sourceTree = "<group>"; };
+		07E8858E257C39B8007BE0E4 /* Communicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		073AA3F62550AD0D009F7745 /* MacChess */ = {
 			isa = PBXGroup;
 			children = (
+				07E8858E257C39B8007BE0E4 /* Communicator.swift */,
 				0750FB21255212410023377D /* MacChessDelegate.swift */,
 				0750FB152551C1F80023377D /* ChessPlayer.swift */,
 				0750FB192551C2AC0023377D /* ChessRank.swift */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07E8858F257C39B8007BE0E4 /* Communicator.swift in Sources */,
 				073AA4092550AD7B009F7745 /* BoardView.swift in Sources */,
 				073AA3FA2550AD0D009F7745 /* ViewController.swift in Sources */,
 				0750FB1A2551C2AC0023377D /* ChessRank.swift in Sources */,
