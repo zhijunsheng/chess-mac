@@ -36,6 +36,7 @@ extension Communicator: StreamDelegate {
         switch eventCode {
         case .hasBytesAvailable:
             print("hasBytesAvailable")
+            readAvailableBytes(stream: aStream as! InputStream)
         case .endEncountered:
             print("endEncountered")
         case .errorOccurred:
@@ -45,5 +46,26 @@ extension Communicator: StreamDelegate {
         default:
             print("other event code: \(eventCode)")
         }
+    }
+    
+    private func readAvailableBytes(stream: InputStream) {
+        let maxReadLength = 4096
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: maxReadLength)
+        while stream.hasBytesAvailable {
+            let numberOfBytesRead = inputStream.read(buffer, maxLength: maxReadLength)
+            if numberOfBytesRead < 0, let error = stream.streamError {
+                print(error)
+                break
+            }
+            
+            if let msg = processedMessageString(buffer: buffer, length: numberOfBytesRead) {
+                print(msg)
+            }
+        }
+    }
+    
+    private func processedMessageString(buffer: UnsafeMutablePointer<UInt8>, length: Int) -> String? {
+        guard let msg = String(bytesNoCopy: buffer, length: length, encoding: .utf8, freeWhenDone: true) else { return nil }
+        return msg
     }
 }
