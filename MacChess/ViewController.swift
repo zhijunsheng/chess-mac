@@ -30,6 +30,7 @@ class ViewController: NSViewController, MacChessDelegate {
         boardView.setNeedsDisplay(boardView.bounds)
         
         communicator.setupSocketComm()
+        communicator.chessDelegate = self
     }
 
     override var representedObject: Any? {

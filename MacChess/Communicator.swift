@@ -10,6 +10,7 @@ import Foundation
 class Communicator: NSObject {
     var inputStream: InputStream!
     var outputStream: OutputStream!
+    var chessDelegate: MacChessDelegate?
     
     func setupSocketComm() {
         var readStream: Unmanaged<CFReadStream>?
@@ -35,7 +36,6 @@ extension Communicator: StreamDelegate {
     func stream(_ aStream: Stream, handle eventCode: Stream.Event) {
         switch eventCode {
         case .hasBytesAvailable:
-            print("hasBytesAvailable")
             readAvailableBytes(stream: aStream as! InputStream)
         case .endEncountered:
             print("endEncountered")
@@ -58,8 +58,16 @@ extension Communicator: StreamDelegate {
                 break
             }
             
-            if let msg = processedMessageString(buffer: buffer, length: numberOfBytesRead) {
-                print(msg)
+            if var msg = processedMessageString(buffer: buffer, length: numberOfBytesRead) {
+                if msg.last == "\n" { // in case the msg is like "6,7,7,5\n"
+                    msg.removeLast()
+                }
+                let moveArr = msg.components(separatedBy: ",")
+                if let fromCol = Int(moveArr[0]), let fromRow = Int(moveArr[1]), let toCol = Int(moveArr[2]), let toRow = Int(moveArr[3]) {
+                    DispatchQueue.main.async {
+                        self.chessDelegate?.movePiece(fromCol: fromCol, fromRow: fromRow, toCol: toCol, toRow: toRow)
+                    }
+                }
             }
         }
     }
