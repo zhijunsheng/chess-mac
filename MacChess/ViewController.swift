@@ -43,6 +43,7 @@ class ViewController: NSViewController, MacChessDelegate {
         chessBoard.movePiece(fromCol: fromCol, fromRow: fromRow, toCol: toCol, toRow: toRow)
         boardView.shadowPiecesBox = chessBoard.piecesBox
         boardView.setNeedsDisplay(boardView.bounds)
+        communicator.sendMove(fromCol: fromCol, fromRow: fromRow, toCol: toCol, toRow: toRow)
     }
     
     func pieceAt(col: Int, row: Int) -> ChessPiece? {

@@ -30,6 +30,17 @@ class Communicator: NSObject {
         outputStream.open()
     }
     
+    func sendMove(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
+        let moveStr = "\(fromCol),\(fromRow),\(toCol),\(toRow)\n"
+        let data = moveStr.data(using: .utf8)!
+        data.withUnsafeBytes {
+            guard let pointer = $0.baseAddress?.assumingMemoryBound(to: UInt8.self) else {
+                print("error sending chess move")
+                return
+            }
+            outputStream.write(pointer, maxLength: data.count)
+        }
+    }
 }
 
 extension Communicator: StreamDelegate {
