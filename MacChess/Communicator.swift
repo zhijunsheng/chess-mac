@@ -54,6 +54,8 @@ extension Communicator: StreamDelegate {
             print("errorOccurred")
         case .hasSpaceAvailable:
             print("hasSpaceAvailable")
+        case .openCompleted:
+            print("openCompleted")
         default:
             print("other event code: \(eventCode)")
         }
