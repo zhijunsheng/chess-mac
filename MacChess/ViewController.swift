@@ -29,8 +29,8 @@ class ViewController: NSViewController, MacChessDelegate {
         boardView.shadowPiecesBox = chessBoard.piecesBox
         boardView.setNeedsDisplay(boardView.bounds)
         
-        communicator.setupSocketComm()
         communicator.chessDelegate = self
+        communicator.setupSocketComm()
     }
 
     override var representedObject: Any? {
